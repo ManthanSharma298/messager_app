@@ -42,7 +42,14 @@ class dataBase {
         .collection('ChatRoom')
         .doc(collectionId)
         .collection('chats')
-        .orderBy('time', descending: true)
+        .orderBy('time', descending: false)
+        .snapshots();
+  }
+
+  getChatList(String userName) async {
+    return await FirebaseFirestore.instance
+        .collection('ChatRoom')
+        .where('users', arrayContains: userName)
         .snapshots();
   }
 }

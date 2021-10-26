@@ -46,8 +46,10 @@ class _SignInState extends State<SignIn> {
                 MaterialPageRoute(builder: (context) => ContactScreen()));
           }
         },
-      ).catchError((e){
-        SnackBar(content: Text("Email doesn't exists"),);
+      ).catchError((e) {
+        SnackBar(
+          content: Text("Email doesn't exists"),
+        );
       });
     }
   }

@@ -44,20 +44,24 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   startConversation(String userName) {
-    String collectionId = getChatRoomId(userName, myName);
+    if (userName != myName) {
+      String collectionId = getChatRoomId(userName, myName);
 
-    List users = [userName, myName];
-    Map<String, dynamic> collectionMap = {
-      'users': users,
-      'roomId': collectionId,
-    };
-    db.createChat(collectionId, collectionMap);
-    Navigator.push(
+      List users = [userName, myName];
+      Map<String, dynamic> collectionMap = {
+        'users': users,
+        'roomId': collectionId,
+      };
+      db.createChat(collectionId, collectionMap);
+      Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => ChatScreen(
-                  collectionId: collectionId,
-                )));
+          builder: (context) => ChatScreen(
+            collectionId: collectionId,
+          ),
+        ),
+      );
+    }
   }
 
   Widget Contact({required String userName, required String userEmail}) {
