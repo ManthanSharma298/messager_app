@@ -39,8 +39,8 @@ class _SignUpState extends State<SignUp> {
           .then((value) {
         db.addUser(emailController.text, userNameController.text);
         storeLoginStatus(true);
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => const ContactScreen()));
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const ContactScreen()));
       });
     }
   }
@@ -103,6 +103,7 @@ class _SignUpState extends State<SignUp> {
                                     ? 'Password should be atleast 6 characters long'
                                     : null;
                               },
+                              obscureText: true,
                               controller: passwordController,
                               style: textStyleFunc(),
                               decoration: textFieldFiller('Password'),
@@ -133,22 +134,22 @@ class _SignUpState extends State<SignUp> {
                     const SizedBox(
                       height: 4,
                     ),
-                    Container(
-                      width: (MediaQuery.of(context).size.width) * 0.5,
-                      child: TextButton(
-                        style: TextButton.styleFrom(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 18, vertical: 8),
-                          textStyle: const TextStyle(fontSize: 20),
-                          backgroundColor: Colors.blueAccent,
-                        ),
-                        onPressed: () {},
-                        child: Text(
-                          'Sign Up with Google',
-                          style: textStyleBlackFunc(),
-                        ),
-                      ),
-                    ),
+                    // Container(
+                    //   width: (MediaQuery.of(context).size.width) * 0.5,
+                    //   child: TextButton(
+                    //     style: TextButton.styleFrom(
+                    //       padding:
+                    //           EdgeInsets.symmetric(horizontal: 18, vertical: 8),
+                    //       textStyle: const TextStyle(fontSize: 20),
+                    //       backgroundColor: Colors.blueAccent,
+                    //     ),
+                    //     onPressed: () {},
+                    //     child: Text(
+                    //       'Sign Up with Google',
+                    //       style: textStyleBlackFunc(),
+                    //     ),
+                    //   ),
+                    // ),
                     const SizedBox(
                       height: 8,
                     ),

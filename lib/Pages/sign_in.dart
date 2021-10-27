@@ -34,6 +34,9 @@ class _SignInState extends State<SignIn> {
       db.getUserFromEmail(emailController.text).then((value) {
         snapshotUserName = value;
         storeUserName(snapshotUserName?.docs[0]['name']);
+        setState(() {
+          myName = snapshotUserName?.docs[0]['name'];
+        });
       });
       authenticate
           .signInWithEmailAndPassword(
@@ -97,18 +100,19 @@ class _SignInState extends State<SignIn> {
                         },
                         controller: passwordController,
                         style: textStyleFunc(),
+                        obscureText: true,
                         decoration: textFieldFiller('Password'),
                       ),
                     ],
                   )),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 5, vertical: 12),
-                alignment: Alignment.centerRight,
-                child: Text(
-                  'Forget Password',
-                  style: textStyleFunc(),
-                ),
-              ),
+              // Container(
+              //   padding: EdgeInsets.symmetric(horizontal: 5, vertical: 12),
+              //   alignment: Alignment.centerRight,
+              //   child: Text(
+              //     'Forget Password',
+              //     style: textStyleFunc(),
+              //   ),
+              // ),
               const SizedBox(
                 height: 6,
               ),
@@ -132,21 +136,21 @@ class _SignInState extends State<SignIn> {
               const SizedBox(
                 height: 4,
               ),
-              Container(
-                width: (MediaQuery.of(context).size.width) * 0.5,
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                    padding: EdgeInsets.symmetric(horizontal: 18, vertical: 8),
-                    textStyle: const TextStyle(fontSize: 20),
-                    backgroundColor: Colors.blueAccent,
-                  ),
-                  onPressed: () {},
-                  child: Text(
-                    'Sign In with Google',
-                    style: textStyleBlackFunc(),
-                  ),
-                ),
-              ),
+              // Container(
+              //   width: (MediaQuery.of(context).size.width) * 0.5,
+              //   child: TextButton(
+              //     style: TextButton.styleFrom(
+              //       padding: EdgeInsets.symmetric(horizontal: 18, vertical: 8),
+              //       textStyle: const TextStyle(fontSize: 20),
+              //       backgroundColor: Colors.blueAccent,
+              //     ),
+              //     onPressed: () {},
+              //     child: Text(
+              //       'Sign In with Google',
+              //       style: textStyleBlackFunc(),
+              //     ),
+              //   ),
+              // ),
               const SizedBox(
                 height: 8,
               ),

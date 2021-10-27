@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import '/Pages/sign_in.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -30,27 +29,25 @@ class _MyAppState extends State<MyApp> {
     getLoginStatusFunc();
     super.initState();
   }
-  getLoginStatusFunc() async{
-    await getLoginStatus().then((value){
+
+  getLoginStatusFunc() async {
+    await getLoginStatus().then((value) {
       setState(() {
         isLogIn = value;
       });
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Messenger App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: Colors.black12,
       ),
-      home: isLogIn != null ? (isLogIn ? ContactScreen() : SignIn()) : Center(
-        child: CircularProgressIndicator(),
-      ),
+      home: isLogIn != null ? (isLogIn ? ContactScreen() : SignIn()) : SignIn(),
     );
   }
 }

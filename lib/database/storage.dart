@@ -15,11 +15,11 @@ class dataBase {
   }
 
   Future getUserFromName(String userName) async {
-    return await users.where('name', isGreaterThanOrEqualTo: userName).get();
+    return await users.where('name', isEqualTo: userName).get();
   }
 
   Future getUserFromEmail(String userEmail) async {
-    return await users.where('name', isGreaterThanOrEqualTo: userEmail).get();
+    return await users.where('email', isEqualTo: userEmail).get();
   }
 
   createChat(collectionId, collectionMap) {
