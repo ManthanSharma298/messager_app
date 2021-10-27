@@ -17,6 +17,7 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   dataBase db = dataBase();
   TextEditingController messageController = TextEditingController();
+  ScrollController _scrollController = ScrollController();
 
   Stream? messageStream;
 
@@ -38,14 +39,24 @@ class _ChatScreenState extends State<ChatScreen> {
         builder: (context, snapshot) {
           return snapshot.hasData
               ? ListView.builder(
-                  itemCount: snapshot.data?.docs.length != null
-                      ? snapshot.data.docs.length
-                      : 0,
+                  controller: _scrollController,
+                  // itemCount: snapshot.data?.docs.length != null
+                  //     ? snapshot.data.docs.length
+                  //     : 0,
+                  itemCount: snapshot.data?.docs.length + 1,
+                  shrinkWrap: true,
                   itemBuilder: (context, index) {
-                    return MessageContainer(
-                      message: snapshot.data.docs[index]['message'],
-                      isSendByMe: snapshot.data.docs[index]['sendBy'] == myName,
-                    );
+                    if (index == snapshot.data?.docs.length) {
+                      return Container(
+                        height: 80,
+                      );
+                    } else {
+                      return MessageContainer(
+                        message: snapshot.data.docs[index]['message'],
+                        isSendByMe:
+                            snapshot.data.docs[index]['sendBy'] == myName,
+                      );
+                    }
                   },
                 )
               : Container();
@@ -75,6 +86,7 @@ class _ChatScreenState extends State<ChatScreen> {
         children: [
           Expanded(child: chatList()),
           Container(
+            height: 80,
             color: Color(0xff101f30),
             child: Container(
               alignment: Alignment.bottomCenter,
@@ -91,6 +103,10 @@ class _ChatScreenState extends State<ChatScreen> {
                   GestureDetector(
                     onTap: () {
                       sendMessage();
+                      _scrollController.animateTo(
+                          _scrollController.position.maxScrollExtent,
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.bounceOut);
                     },
                     child: Container(
                       margin: EdgeInsets.only(left: 16),
