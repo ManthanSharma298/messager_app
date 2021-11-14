@@ -1,16 +1,28 @@
-# messenger
+# Messenger App
 
-A new Flutter project.
+A Chatting App Using Flutter and [Firebase](https://firebase.google.com/).
 
-## Getting Started
+## Features
+- Dark UI
+- Have sign in and sign out feature by google authentication
+- One to one chat feature
+- Uses FireBase as Backend (for storing data and authentication)
+- logout any time you want
+- data stored in local storage so that after closing the app user remains logged in
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<table>
+    <tr>
+        <td>Sign In</td>
+        <td>Sign Up</td>
+        <td>Contacts</td>
+        <td>Search</td>
+        <td>Chats</td>
+    </tr>
+    <tr>
+        <td><img src="https://github.com/ManthanSharma298/messager_app/blob/main/Screenshots/signIn.jpg?raw=true" width="200"></td>
+        <td><img src="https://github.com/ManthanSharma298/messager_app/blob/main/Screenshots/signUp.jpg?raw=true" width="200"></td>
+        <td><img src="https://github.com/ManthanSharma298/messager_app/blob/main/Screenshots/contact_screen.jpg?raw=true" width="200"></td>
+        <td><img src="https://github.com/ManthanSharma298/messager_app/blob/main/Screenshots/search_screen.jpg?raw=true" width="200"></td>
+        <td><img src="https://github.com/ManthanSharma298/messager_app/blob/main/Screenshots/chat_screen.jpg?raw=true" width="200"></td>
+    </tr>
+</table>
