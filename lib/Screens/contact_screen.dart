@@ -110,12 +110,13 @@ class ContactContainer extends StatelessWidget {
       },
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 4),
+        padding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
         color: Color(0xff101f30),
         child: Row(
           children: [
-            const Icon(
-              Icons.image_rounded,
-              color: Colors.white,
+            const CircleAvatar(
+              radius: 30,
+              backgroundImage: AssetImage('images/user_img.png'),
             ),
             Container(
               padding: EdgeInsets.symmetric(vertical: 20),
